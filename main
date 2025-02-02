@@ -1,0 +1,68 @@
+from random import randint
+import pandas as pd
+pip install Faker
+from faker import Faker
+fake = Faker()
+print(fake.name())
+fake_name = fake.name()
+fake_address = fake.address()
+fake_text = fake.text()
+fake_number = fake.random_number(digits=5)
+fake_date = fake.date_of_birth(minimum_age=18, maximum_age=90)
+fake_email = fake.email()
+fake_phone_number = fake.phone_number()
+fake_company = fake.company()
+fake_credit_card_number = fake.credit_card_number()
+fake_color = fake.color_name()
+fake_user_agent = fake.user_agent()
+fake_uuid = fake.uuid4()
+fake_file_path = fake.file_path()
+fake_image_url = fake.image_url()
+fake_profile_picture = fake.image_url(width=200, height=200)
+print("Fake Name:", fake_name)
+print("Fake Address:", fake_address)
+print("Fake Text:", fake_text)
+print("Fake Number:", fake_number)
+print("Fake Date:", fake_date)
+print("Fake Email:", fake_email)
+print("Fake Phone Number:", fake_phone_number)
+print("Fake Company:", fake_company)
+print("Fake Credit Card Number:", fake_credit_card_number)
+print("Fake Color:", fake_color)
+print("Fake User Agent:", fake_user_agent)
+print("Fake UUID:", fake_uuid)
+print("Fake File Path:", fake_file_path)
+print("Fake Image URL:", fake_image_url)
+print("Fake Profile Picture:", fake_profile_picture)
+from faker import Faker
+import pandas as pd
+from random import randint
+
+fake = Faker()
+
+def input_data(x):
+    # pandas dataframe
+    data = pd.DataFrame()
+    for i in range(0, x):
+        data.loc[i,'id'] = randint(1, 100)
+        #data.loc[i, 'prefix_male'] = str(fake.prefix_male())
+        data.loc[i, 'suffix_female'] = str(fake.suffix_female())
+
+        data.loc[i,'name'] = fake.name()
+        data.loc[i,'address'] = fake.address()
+        #data.loc[i,'latitude'] = str(fake.latitude())
+        #data.loc[i,'longitude'] = str(fake.longitude())
+        data.loc[i,'company'] = str(fake.company())
+
+        data.loc[i,'number'] = str(randint(1000000000, 9000000000))  # Convert phone number to string
+
+    return data
+
+input_data(10)
+
+from faker import Faker
+
+fake = Faker()
+
+# List all attributes and methods of the Faker object
+print(dir(fake))
